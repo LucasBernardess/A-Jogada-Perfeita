@@ -6,7 +6,7 @@ INCDIR = ./include
 BINDIR =  # Diretório do binário está vazio, indicando o diretório atual
 
 # Define os arquivos objetos
-_OBJS = main.o 
+_OBJS = tp2.o file_io.o dp_solution.o alternative_solution.o time_utils.o
 OBJS = $(patsubst %,$(OBJDIR)/%,$(_OBJS))
 
 # Pasta padrão para includes
