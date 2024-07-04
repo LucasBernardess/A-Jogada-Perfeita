@@ -1,6 +1,6 @@
-#include "../include/dp_solution.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "../include/dp_solution.h"
 
 // Função para encontrar o valor máximo usando programação dinâmica
 int dp_solution(int *sequence, int n) {

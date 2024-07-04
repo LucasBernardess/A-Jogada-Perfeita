@@ -1,10 +1,9 @@
-#include "../include/alternative_solution.h"
 #include <stdlib.h>
-
 #include <stdio.h>
+#include "../include/alternative_solution.h"
 
 // Função recursiva de força bruta para encontrar a pontuação máxima
-int brute_force_solution(int *sequence, int n) {
+int alternative_solution(int *sequence, int n) {
     // Caso base: se a sequência estiver vazia
     if (n <= 0) return 0;
 
@@ -14,8 +13,8 @@ int brute_force_solution(int *sequence, int n) {
         int currentPoints = sequence[i];
 
         // Subsequências resultantes da remoção de sequence[i] e seus vizinhos
-        int leftPoints = brute_force_solution(sequence, i - 1);
-        int rightPoints = brute_force_solution(sequence + i + 2, n - i - 2);
+        int leftPoints = alternative_solution(sequence, i - 1);
+        int rightPoints = alternative_solution(sequence + i + 2, n - i - 2);
 
         // Pontos totais ao escolher sequence[i]
         int totalPoints = currentPoints + leftPoints + rightPoints;
@@ -27,9 +26,4 @@ int brute_force_solution(int *sequence, int n) {
     }
 
     return maxPoints;
-}
-
-// Função principal para chamada da solução de força bruta
-int alternative_solution(int *sequence, int n) {
-    return brute_force_solution(sequence, n);
 }

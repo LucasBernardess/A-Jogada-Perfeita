@@ -1,8 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "../include/file_io.h"
 #include "../include/dp_solution.h"
 #include "../include/alternative_solution.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 int processInputOutput(const char *inputFileName, char strategy) {
     // Abre o arquivo de entrada para leitura
