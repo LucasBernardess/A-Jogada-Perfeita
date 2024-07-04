@@ -11,25 +11,21 @@
 int main(int argc, char *argv[]) {
     struct timeval start, end;
     struct rusage usageStart, usageEnd;
-    char *inputFileName = NULL, *outputFileName = NULL;
+    char *inputFileName = NULL;
     char strategy;
-    int opt;
-
-    // Processamento dos argumentos da linha de comando
-    while ((opt = getopt(argc, argv, "i:o:s:")) != -1) {
-        switch (opt) {
-            case 'i': inputFileName = optarg; break;
-            case 'o': outputFileName = optarg; break;
-            case 's': strategy = optarg[0]; break;
-            default:
-                fprintf(stderr, "Uso: %s -i <arquivo de entrada> -o <arquivo de saída> -s <estratégia>\n", argv[0]);
-                return EXIT_FAILURE;
-        }
+    
+    // Verificação dos argumentos
+    if (argc != 3) {
+        fprintf(stderr, "Uso: %s <estrategia> <arquivo de entrada>\n", argv[0]);
+        return EXIT_FAILURE;
     }
 
-    // Validação dos argumentos de entrada e saída
-    if (!inputFileName || !outputFileName || (strategy != 'D' && strategy != 'A')) {
-        fprintf(stderr, "Arquivos de entrada e/ou saída ou estratégia não especificados!\n");
+    strategy = argv[1][0];
+    inputFileName = argv[2];
+
+    // Validação da estratégia
+    if (strategy != 'D' && strategy != 'A') {
+        fprintf(stderr, "Estratégia inválida! Use 'D' para Programação Dinâmica ou 'A' para Solução Alternativa.\n");
         return EXIT_FAILURE;
     }
 
@@ -38,7 +34,7 @@ int main(int argc, char *argv[]) {
     getrusage(RUSAGE_SELF, &usageStart);
 
     // Processamento do arquivo de entrada e geração do arquivo de saída
-    if (!processInputOutput(inputFileName, outputFileName, strategy)) {
+    if (!processInputOutput(inputFileName, strategy)) {
         fprintf(stderr, "Falha no processamento dos arquivos.\n");
         return EXIT_FAILURE;
     }
@@ -47,6 +43,6 @@ int main(int argc, char *argv[]) {
     gettimeofday(&end, NULL);
     getrusage(RUSAGE_SELF, &usageEnd);
     calculateExecutionTime(start, end, usageStart, usageEnd);
-    
+
     return EXIT_SUCCESS;
 }

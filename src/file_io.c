@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int processInputOutput(const char *inputFileName, const char *outputFileName, char strategy) {
+int processInputOutput(const char *inputFileName, char strategy) {
     // Abre o arquivo de entrada para leitura
     FILE *inputFile = fopen(inputFileName, "r");
     if (!inputFile) {
@@ -38,7 +38,7 @@ int processInputOutput(const char *inputFileName, const char *outputFileName, ch
     }
 
     // Abre o arquivo de saída para escrita
-    FILE *outputFile = fopen(outputFileName, "w");
+    FILE *outputFile = fopen("saida.txt", "w");
     if (!outputFile) {
         perror("Erro ao abrir o arquivo de saída");
         free(sequence);
