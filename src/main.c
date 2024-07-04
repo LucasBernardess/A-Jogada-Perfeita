@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <sys/time.h>
 #include <sys/resource.h>
-#include <unistd.h>
 #include "../include/file_io.h"
 #include "../include/dp_solution.h"
 #include "../include/alternative_solution.h"
@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     
     // Verificação dos argumentos
     if (argc != 3) {
-        fprintf(stderr, "Uso: %s <estrategia> <arquivo de entrada>\n", argv[0]);
+        fprintf(stderr, "Use: %s <estrategia> <arquivo de entrada>\n", argv[0]);
         return EXIT_FAILURE;
     }
 

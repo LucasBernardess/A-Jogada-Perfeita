@@ -13,7 +13,7 @@ void calculateExecutionTime(struct timeval start, struct timeval end,
     double sysTime = (usageEnd.ru_stime.tv_sec - usageStart.ru_stime.tv_sec) +
                      (usageEnd.ru_stime.tv_usec - usageStart.ru_stime.tv_usec) / 1e6;
 
-    printf("\n# Tempo de execução:\n");
+    printf("# Tempo de execução:\n");
     printf("-> Tempo total de execução: %.3f segundos.\n", elapsed);
     printf("-> Tempo de usuário: %.3f segundos.\n", userTime);
     printf("-> Tempo de sistema: %.3f segundos.\n", sysTime);
