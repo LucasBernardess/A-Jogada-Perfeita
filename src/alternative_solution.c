@@ -9,6 +9,7 @@ int maxAlternative(int a, int b) {
 int maxPointsBruteForce(int* a, int n) {
     if (n == 0) return 0;
     if (n == 1) return a[0];
+    if(n == 2) return maxAlternative(a[0],a[1]);
     
     int maxPoints = 0;
     for (int i = 0; i < n; i++) {
