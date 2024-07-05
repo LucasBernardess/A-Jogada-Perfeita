@@ -19,9 +19,9 @@ int processInputOutput(const char *inputFileName, char strategy) {
         return 0;
     }
 
-    int *sequence = (int *)malloc(n * sizeof(int));
+    unsigned long int *sequence = (unsigned long int *)malloc(n * sizeof(unsigned long int));
     for (int i = 0; i < n; i++) {
-        if (fscanf(inputFile, "%d", &sequence[i]) != 1) {
+        if (fscanf(inputFile, "%lu", &sequence[i]) != 1) {
             fprintf(stderr, "Erro ao ler os dados da sequência.\n");
             fclose(inputFile);
             free(sequence);
@@ -30,7 +30,7 @@ int processInputOutput(const char *inputFileName, char strategy) {
     }
     fclose(inputFile);
 
-    int result;
+    unsigned long int result;
     if (strategy == 'D') {
         result = maxPointsDP(sequence, n);
     } else {
@@ -44,7 +44,7 @@ int processInputOutput(const char *inputFileName, char strategy) {
         free(sequence);
         return 0;
     }
-    fprintf(outputFile, "%d\n", result);
+    fprintf(outputFile, "%lu\n", result);
     fclose(outputFile);
 
     free(sequence);

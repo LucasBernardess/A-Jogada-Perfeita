@@ -2,16 +2,16 @@
 #include <stdio.h>
 #include "../include/dp_solution.h"
 
-int max(int a, int b) {
+unsigned long int max(unsigned long int a, unsigned long int b) {
     return (a > b) ? a : b;
 }
 
-int maxPointsDP(int* a, int n) {
+unsigned long int maxPointsDP(unsigned long int* a, int n) {
     if (n == 0) return 0;
     if (n == 1) return a[0];
-    if(n == 2) return max(a[0],a[1]);
+    if (n == 2) return max(a[0], a[1]);
     
-    int* dp = (int*)malloc(n * sizeof(int));
+    unsigned long int* dp = (unsigned long int*)malloc(n * sizeof(unsigned long int));
     dp[0] = a[0];
     dp[1] = max(a[0], a[1]);
     
@@ -19,7 +19,7 @@ int maxPointsDP(int* a, int n) {
         dp[i] = max(dp[i-1], a[i] + dp[i-2]);
     }
     
-    int result = dp[n-1];
+    unsigned long int result = dp[n-1];
     free(dp);
     return result;
 }
