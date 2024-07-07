@@ -1,10 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../include/dp_solution.h"
-
-unsigned long int max(unsigned long int a, unsigned long int b) {
-    return (a > b) ? a : b;
-}
+#include "utils.h"
 
 unsigned long int maxPointsDP(unsigned long int* a, int n) {
     if (n == 0) return 0;
