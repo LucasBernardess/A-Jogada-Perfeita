@@ -34,7 +34,7 @@ int processInputOutput(const char *inputFileName, char strategy) {
     if (strategy == 'D') {
         result = maxPointsDP(sequence, n);
     } else {
-        result = maxPointsBruteForce(sequence, n);
+        result = maxPointsBruteForce(sequence, n, 0);
     }
 
     // Abre o arquivo de saída para escrita
