@@ -3,7 +3,9 @@
 #include "utils.h"
 #include "../include/alternative_solution.h"
 
+// Estratégia utilizando força bruta
 unsigned long int maxPointsBruteForce(unsigned long int* a, int n, int i) {
+    // Verificação inicial
     if (i >= n) {
         return 0;
     }
