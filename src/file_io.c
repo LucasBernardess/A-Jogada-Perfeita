@@ -22,7 +22,7 @@ int processInputOutput(const char *inputFileName, char strategy) {
         return 0;
     }
 
-    if (n >= 0 || n <= 100000) {
+    if (n < 0 || n > 100000) {
         fprintf(stderr, "Valor fora do intervalo permitido: %d\n", n);
         fclose(inputFile);
         return 0;
