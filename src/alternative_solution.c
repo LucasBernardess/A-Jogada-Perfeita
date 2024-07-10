@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "../include/alternative_solution.h"
 #include "utils.h"
+#include "../include/alternative_solution.h"
 
 unsigned long int maxPointsBruteForce(unsigned long int* a, int n, int i) {
     if (i >= n) {

@@ -6,7 +6,7 @@ INCDIR = ./include
 BINDIR = .
 
 # Define os arquivos objetos, incluindo utils.o
-_OBJS = main.o file_io.o dp_solution.o alternative_solution.o time_utils.o utils.o
+_OBJS = main.o file_io.o dp_solution.o alternative_solution.o time.o utils.o
 OBJS = $(patsubst %,$(OBJDIR)/%,$(_OBJS))
 
 # Pasta padrão para includes

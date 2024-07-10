@@ -3,11 +3,12 @@
 #include <unistd.h>
 #include <sys/time.h>
 #include <sys/resource.h>
+#include "../include/time.h"
 #include "../include/file_io.h"
 #include "../include/dp_solution.h"
 #include "../include/alternative_solution.h"
-#include "../include/time_utils.h"
 
+// Inicialização do projeto
 int main(int argc, char *argv[]) {
     struct timeval start, end;
     struct rusage usageStart, usageEnd;
