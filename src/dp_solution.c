@@ -4,26 +4,26 @@
 #include "../include/dp_solution.h"
 
 // Estratégia utilizando programação dinâmica
-unsigned long int maxPointsDP(unsigned long int* a, int n) {
+unsigned long int maxPointsDP(unsigned long int* points, int quantity) {
     // Verificações iniciais
-    if (n == 0) return 0;
-    if (n == 1) return a[0];
-    if (n == 2) return max(a[0], a[1]);
+    if (quantity == 0) return 0;
+    if (quantity == 1) return points[0];
+    if (quantity == 2) return max(points[0], points[1]);
     
     // Aloca memória para o array dp
-    unsigned long int* dp = (unsigned long int*)malloc(n * sizeof(unsigned long int));
+    unsigned long int* dp = (unsigned long int*)malloc(quantity * sizeof(unsigned long int));
 
     // Inicializando o 2 primeiros valores
-    dp[0] = a[0];
-    dp[1] = max(a[0], a[1]);
+    dp[0] = points[0];
+    dp[1] = max(points[0], points[1]);
 
     // Calculando os outros valores do array dp, utilizando a relação de recorrência
-    for (int i = 2; i < n; i++) {
-        dp[i] = max(dp[i-1], a[i] + dp[i-2]);
+    for (int i = 2; i < quantity; i++) {
+        dp[i] = max(dp[i-1], points[i] + dp[i-2]);
     }
     
     // Puxando o último valor do array dp, pois é o resultado final
-    unsigned long int result = dp[n-1];
+    unsigned long int result = dp[quantity-1];
     free(dp);
     return result;
 }

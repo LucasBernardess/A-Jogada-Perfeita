@@ -13,24 +13,24 @@ int processInputOutput(const char *inputFileName, char strategy) {
         return 0;
     }
 
-    int n;
+    int quantity;
 
     // Verificações para prosseguir com a execução
-    if (fscanf(inputFile, "%d", &n) != 1) {
+    if (fscanf(inputFile, "%d", &quantity) != 1) {
         fprintf(stderr, "Formato de arquivo de entrada inválido.\n");
         fclose(inputFile);
         return 0;
     }
 
-    if (n < 0 || n > 100000) {
-        fprintf(stderr, "Valor fora do intervalo permitido: %d\n", n);
+    if (quantity < 0 || quantity > 100000) {
+        fprintf(stderr, "Valor fora do intervalo permitido: %d\n", quantity);
         fclose(inputFile);
         return 0;
     }
 
     // Aloca memória para a sequência
-    unsigned long int *sequence = (unsigned long int *)malloc(n * sizeof(unsigned long int));
-    for (int i = 0; i < n; i++) {
+    unsigned long int *sequence = (unsigned long int *)malloc(quantity * sizeof(unsigned long int));
+    for (int i = 0; i < quantity; i++) {
         if (fscanf(inputFile, "%lu", &sequence[i]) != 1) {
             fprintf(stderr, "Erro ao ler os dados da sequência.\n");
             fclose(inputFile);
@@ -43,9 +43,9 @@ int processInputOutput(const char *inputFileName, char strategy) {
     unsigned long int result;
     // Escolhe a estratégia escolhida
     if (strategy == 'D') {
-        result = maxPointsDP(sequence, n); // Solução Dinâmica
+        result = maxPointsDP(sequence, quantity); // Solução Dinâmica
     } else {
-        result = maxPointsBruteForce(sequence, n, 0); // Solução com força bruta
+        result = maxPointsBruteForce(sequence, quantity, 0); // Solução com força bruta
     }
 
     // Abre o arquivo de saída para escrita
