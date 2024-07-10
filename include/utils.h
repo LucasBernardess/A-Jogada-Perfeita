@@ -1,6 +1,6 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-unsigned long int max(unsigned long int valueA, unsigned long int valueB);
+long int max(long int valueA, long int valueB);
 
 #endif

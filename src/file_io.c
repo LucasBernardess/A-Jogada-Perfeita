@@ -29,7 +29,7 @@ int processInputOutput(const char *inputFileName, char strategy) {
     }
 
     // Aloca memória para a sequência
-    unsigned long int *sequence = (unsigned long int *)malloc(quantity * sizeof(unsigned long int));
+    long int *sequence = (long int *)malloc(quantity * sizeof(long int));
     for (int i = 0; i < quantity; i++) {
         if (fscanf(inputFile, "%lu", &sequence[i]) != 1) {
             fprintf(stderr, "Erro ao ler os dados da sequência.\n");
@@ -40,7 +40,7 @@ int processInputOutput(const char *inputFileName, char strategy) {
     }
     fclose(inputFile);
 
-    unsigned long int result;
+    long int result;
     // Escolhe a estratégia escolhida
     if (strategy == 'D') {
         result = maxPointsDP(sequence, quantity); // Solução Dinâmica
