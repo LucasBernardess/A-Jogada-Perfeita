@@ -37,6 +37,10 @@ int processInputOutput(const char *inputFileName, char strategy) {
             free(sequence);
             return 0;
         }
+        // Para casos negativos, o valor é modificado para zero
+        if (sequence[i] < 0) {
+            sequence[i] = 0;
+        }
     }
     fclose(inputFile);
 
